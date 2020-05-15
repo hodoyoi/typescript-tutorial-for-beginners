@@ -73,8 +73,24 @@ $.ajax({
     console.log(item.id);
     const number = item.id; // タグを動的に書き換えるためのid情報
     $("#name" + number).html(item.name);
-    $("#price" + number).html(item.price);
-    $("#tags" + number).html(item.tags);
+    // Step5: 金額表記にカンマがないからおばあちゃんが見間違って10億円の商品を買ってしまいました #2
+    const digit = item.price;
+    $("#price" + number).html(digit.toLocaleString() + "円");
+    // これでおばぁちゃんも大丈夫だね
+    const tagsort = item.tags.map(function (tag) {
+      return "<div>" + tag + "</div>";
+    });
+    $("#tags" + number).html(tagsort);
   });
   // responseをforEach()で回して、適切なidの要素にnameとpriceを入れなさい!!!
 });
+// Step5: 商品タグを1行ずつ表記せよ！ #1
+// タグの切れ目がないので視認性にイチャモンがあります
+
+// tagをループして<div></div>で囲えませんか？
+
+const CSV = "a,b,c,d,e,f";
+
+/// コンマで分割して表示
+var strs = CSV.split("<div>" + "," + "<div>");
+console.log("strs : ", strs);
