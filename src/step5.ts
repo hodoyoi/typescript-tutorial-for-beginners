@@ -75,7 +75,18 @@ $.ajax({
     $("#name" + number).html(item.name);
     $("#price" + number).html(item.price);
     $("#tags" + number).html(
-      "<div>" + item.tags[0] + "</div>" + "<div>" + item.tags[1] + "</div>"
+      "<div>" +
+        item.tags[0] +
+        "</div>" +
+        "<div>" +
+        item.tags[1] +
+        "</div>" +
+        "<div>" +
+        item.tags[2] +
+        "</div>" +
+        "<div>" +
+        item.tags[3] +
+        "</div>"
     );
   });
   // responseをforEach()で回して、適切なidの要素にnameとpriceを入れなさい!!!
