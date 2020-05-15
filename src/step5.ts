@@ -74,20 +74,8 @@ $.ajax({
     const number = item.id; // タグを動的に書き換えるためのid情報
     $("#name" + number).html(item.name);
     $("#price" + number).html(item.price);
-    $("#tags" + number).html(
-      "<div>" +
-        item.tags[0] +
-        "</div>" +
-        "<div>" +
-        item.tags[1] +
-        "</div>" +
-        "<div>" +
-        item.tags[2] +
-        "</div>" +
-        "<div>" +
-        item.tags[3] +
-        "</div>"
-    );
+    const tagsort = item.tags;
+    $("#tags" + number).html("<div>" + tagsort.join("</div><div>") + "</div>");
   });
   // responseをforEach()で回して、適切なidの要素にnameとpriceを入れなさい!!!
 });
