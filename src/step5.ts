@@ -74,9 +74,10 @@ $.ajax({
     const number = item.id; // タグを動的に書き換えるためのid情報
     $("#name" + number).html(item.name);
     $("#price" + number).html(item.price);
-    const tagsplit = $("#tags" + number).html("<div>" + item.tags + "</div>");
-    var tagdiv = tagsplit.split(",");
-    tagdiv.html("<div>" + tagsplit + "</div>");
+    // const tagsplit =
+    $("#tags" + number).html("<div>" + item.tags + "</div>");
+    // var tagdiv = tagsplit.split(",");
+    // tagdiv.html("<div>" + tagsplit + "</div>");
   });
   // responseをforEach()で回して、適切なidの要素にnameとpriceを入れなさい!!!
 });
