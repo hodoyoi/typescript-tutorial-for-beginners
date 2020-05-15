@@ -75,7 +75,7 @@ $.ajax({
     $("#name" + number).html(item.name);
     $("#price" + number).html(item.price);
     // const tagsplit =
-    $("#tags" + number).html("<div>" + item.tags + "</div>");
+    $("#tags" + number).html(item.tags[0] + "<div>" + item.tags[0] + "</div>");
     // var tagdiv = tagsplit.split(",");
     // tagdiv.html("<div>" + tagsplit + "</div>");
   });
