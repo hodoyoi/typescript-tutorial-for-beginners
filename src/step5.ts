@@ -74,13 +74,17 @@ $.ajax({
     const number = item.id; // タグを動的に書き換えるためのid情報
     $("#name" + number).html(item.name);
     $("#price" + number).html(item.price);
-    // const tagsplit =
-    $("#tags" + number).html(item.tags[0] + "<div>" + item.tags[0] + "</div>");
-    // var tagdiv = tagsplit.split(",");
-    // tagdiv.html("<div>" + tagsplit + "</div>");
+    $("#tags" + number).html(
+      "<div>" + item.tags[0] + "</div>" + "<div>" + item.tags[1] + "</div>"
+    );
   });
   // responseをforEach()で回して、適切なidの要素にnameとpriceを入れなさい!!!
 });
+// Step5: 商品タグを1行ずつ表記せよ！ #1
+// タグの切れ目がないので視認性にイチャモンがあります
+
+// tagをループして<div></div>で囲えませんか？
+
 const CSV = "a,b,c,d,e,f";
 
 /// コンマで分割して表示
