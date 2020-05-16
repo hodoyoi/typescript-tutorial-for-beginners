@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Test Item 1",
+    "price": 1000,
+    "tags": ["New", "Nice"]
+  },
+  {
+    "id": 2,
+    "name": "Super Nice Item 2",
+    "price": 1500,
+    "tags": ["Nice", "Cool"]
+  },
+  {
+    "id": 3,
+    "name": "Great Item 3",
+    "price": 10000,
+    "tags": ["Nice", "Special"]
+  },
+  {
+    "id": 4,
+    "name": "Poor Item 4",
+    "price": 100,
+    "tags": ["Fuck", "Item"]
+  },
+  {
+    "id": 5,
+    "name": "God Item 5",
+    "price": 1000000000,
+    "tags": ["God", "Super God", "Crazy God", "Ultra Grand Cross"]
+  }
+]

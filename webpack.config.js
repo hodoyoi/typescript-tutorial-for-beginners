@@ -1,6 +1,7 @@
 const path = require("path");
 const HTMLPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 module.exports = {
   module: {
@@ -18,10 +19,17 @@ module.exports = {
         test: /\.(css|scss|sass)$/i,
         use: ["style-loader", "css-loader", "sass-loader"],
       },
+      {
+        test: /\.vue$/,
+        loader: "vue-loader",
+      },
     ],
   },
   resolve: {
-    extensions: [".js", ".ts", ".tsx", ".json", ".mjs", ".wasm"],
+    extensions: [".js", ".ts", ".tsx", ".json", ".mjs", ".wasm", "vue"],
+    alias: {
+      vue$: "vue/dist/vue.esm.js",
+    },
   },
   plugins: [
     new HTMLPlugin({
@@ -32,5 +40,6 @@ module.exports = {
         from: "static/**/*",
       },
     ]),
+    new VueLoaderPlugin(),
   ],
 };
