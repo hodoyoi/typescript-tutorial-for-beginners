@@ -88,9 +88,3 @@ $.ajax({
 // タグの切れ目がないので視認性にイチャモンがあります
 
 // tagをループして<div></div>で囲えませんか？
-
-const CSV = "a,b,c,d,e,f";
-
-/// コンマで分割して表示
-var strs = CSV.split("<div>" + "," + "<div>");
-console.log("strs : ", strs);

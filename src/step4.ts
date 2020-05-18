@@ -33,7 +33,7 @@ $("#count").html(count);
 // ・取り消しボタンを押したら、在庫を1増やす
 // ・在庫は3以上にはならない
 
-$("#btn").on("click", function () {
+$("#btn").on("click", function() {
   count--;
   $("#count").html(count);
   if (count <= 0) {
@@ -41,7 +41,7 @@ $("#btn").on("click", function () {
   }
 });
 
-$("#minus-btn").on("click", function () {
+$("#minus-btn").on("click", function() {
   if (count < 3) {
     count++;
     $("#count").html(count);
