@@ -7,4 +7,6 @@ import "bootstrap";
 // import "./step3.ts";
 // import "./step4.ts";
 // import "./step5.ts";
-import "./step6"; // ディレクトリをインポートすると、当該ディレクトリのindex.tsが自動的にロードされる
+// import "./step6"; // ディレクトリをインポートすると、当該ディレクトリのindex.tsが自動的にロードされる
+
+import "./step7";

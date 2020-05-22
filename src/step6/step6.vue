@@ -13,12 +13,13 @@
       <li v-for="(message, index) in messages" :key="index">{{ message }}</li>
     </ul>
 
-    <input type="text" class="form-control d-inline-block" v-model="addText" />
-    <a href="#" class="btn btn-primary" @click="onClickAdd">Add</a>
+    <addtext @add="onAdd"></addtext>
   </div>
 </template>
 
 <script>
+import Addtext from "./addtext.vue";
+
 export default {
   data() {
     return {
@@ -29,14 +30,16 @@ export default {
         "Fuga Moge",
         "Super Chicken Park",
         "Ultimate Duck Duck Do"
-      ],
-      addText: ""
+      ]
     };
   },
   methods: {
-    onClickAdd() {
-      this.messages.push(this.addText);
+    onAdd(text) {
+      this.messages.push(text);
     }
+  },
+  components: {
+    Addtext
   }
 };
 </script>
