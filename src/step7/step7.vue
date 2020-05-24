@@ -50,7 +50,7 @@ export default {
         return lose;
       }
       if (this.humanHand == "チョキ" && this.comHand == "グー") {
-        return win;
+        return lose;
       }
       if (this.humanHand == "パー" && this.comHand == "チョキ") {
         return lose;
