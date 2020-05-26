@@ -4,9 +4,15 @@
     <div>人間の手: {{ humanHand }}</div>
     <div>コンピュータの手: {{ comHand }}</div>
     <div>
-      <a href="#" class="btn btn-lg btn-primary" @click="onJanken('グー')">グー</a>
-      <a href="#" class="btn btn-lg btn-primary" @click="onJanken('チョキ')">チョキ</a>
-      <a href="#" class="btn btn-lg btn-primary" @click="onJanken('パー')">パー</a>
+      <a href="#" class="btn btn-lg btn-primary" @click="onJanken('グー')"
+        >グー</a
+      >
+      <a href="#" class="btn btn-lg btn-primary" @click="onJanken('チョキ')"
+        >チョキ</a
+      >
+      <a href="#" class="btn btn-lg btn-primary" @click="onJanken('パー')"
+        >パー</a
+      >
     </div>
     <h3>勝敗: {{ result }}</h3>
   </div>
@@ -18,7 +24,7 @@ export default {
     return {
       humanHand: "",
       comHand: "",
-      result: ""
+      result: "",
     };
   },
   methods: {
@@ -58,7 +64,7 @@ export default {
       if (this.humanHand == this.comHand) {
         return draw;
       }
-    }
-  }
+    },
+  },
 };
 </script>
