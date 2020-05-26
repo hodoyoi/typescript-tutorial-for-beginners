@@ -36,7 +36,7 @@ export default {
       this.compic = this.emoji(this.comHand);
       this.result = this.hantei();
       this.jankenCount++;
-      // ジャンケンカウントを1回足す
+      this.reset = this.cooltime();
     },
     emoji(hand) {
       if (hand == "グー") {
@@ -59,18 +59,20 @@ export default {
       return hand;
     },
     availableGuChokiPa() {
-      // ここにグーチョキパーボタンを出せるかどうかの判定をいれよ
       if (this.jankenCount >= 3) {
         return true;
       }
       return false;
     },
+    cooltime() {
+      if (this.humanHand == "グーチョキパー") {
+        this.jankenCount = 0;
+      }
+    },
     hantei() {
       const win = "あなたの勝ち！";
       const lose = "コンピュータの勝ち！";
       const draw = "あいこ！";
-
-      // ここにグーチョキパーボタンを押した時の判定をいれよ
 
       if (this.humanHand == "グー" && this.comHand == "チョキ") {
         return win;
