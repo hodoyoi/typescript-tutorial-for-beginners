@@ -4,12 +4,25 @@
     <div>人間の手: {{ humanHand }}</div>
     <div>コンピュータの手: {{ comHand }}</div>
     <div>
-      <a href="#" class="btn btn-lg btn-primary" @click="onJanken('グー')">グー</a>
-      <a href="#" class="btn btn-lg btn-primary" @click="onJanken('チョキ')">チョキ</a>
-      <a href="#" class="btn btn-lg btn-primary" @click="onJanken('パー')">パー</a>
+      <a href="#" class="btn btn-lg btn-primary" @click="onJanken('グー')"
+        >グー</a
+      >
+      <a href="#" class="btn btn-lg btn-primary" @click="onJanken('チョキ')"
+        >チョキ</a
+      >
+      <a href="#" class="btn btn-lg btn-primary" @click="onJanken('パー')"
+        >パー</a
+      >
 
-      <a href="#" class="btn btn-lg btn-primary" @click="onJanken('グーチョキパー')" v-if="availableGuChokiPa()">グーチョキパー</a>
+      <a
+        href="#"
+        class="btn btn-lg btn-primary"
+        @click="onJanken('グーチョキパー')"
+        v-if="availableGuChokiPa()"
+        >グーチョキパー</a
+      >
     </div>
+    <h3>カウント: {{ jankenCount }}</h3>
     <h3>勝敗: {{ result }}</h3>
   </div>
 </template>
@@ -29,7 +42,7 @@ export default {
       this.humanHand = hand;
       this.comHand = this.getComHand();
       this.result = this.hantei();
-
+      this.jankenCount++;
       // ジャンケンカウントを1回足す
     },
     getComHand() {
@@ -39,6 +52,7 @@ export default {
     },
     availableGuChokiPa() {
       // ここにグーチョキパーボタンを出せるかどうかの判定をいれよ
+      // if ((this.jankenCount = 3)) return true;
       return false;
     },
     hantei() {
