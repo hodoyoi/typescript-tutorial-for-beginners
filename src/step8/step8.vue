@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <h1>hogeoghoe</h1>
-  </div>
+  <h1>hogehoge</h1>
 </template>
 
 <script>
