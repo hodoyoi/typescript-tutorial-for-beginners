@@ -27,7 +27,7 @@ export default {
       compic: "",
       result: "",
       jankenCount: 0,
-      energy: "",
+      energy: "🐱：☆☆☆",
     };
   },
   methods: {
