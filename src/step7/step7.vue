@@ -12,6 +12,7 @@
       <a href="#" class="btn btn-lg btn-primary" @click="onJanken('グーチョキパー')" v-if="availableGuChokiPa()">猫の手を借りる</a>
     </div>
     <h3>カウント: {{ jankenCount }}</h3>
+    <h3>猫エネルギー: {{ energy }}</h3>
     <h3>勝敗: {{ result }}</h3>
   </div>
 </template>
@@ -26,6 +27,7 @@ export default {
       compic: "",
       result: "",
       jankenCount: 0,
+      energy: "",
     };
   },
   methods: {
@@ -37,6 +39,21 @@ export default {
       this.result = this.hantei();
       this.jankenCount++;
       this.reset = this.cooltime();
+      this.energy = this.nekocount();
+    },
+    nekocount() {
+      if (this.jankenCount == 0) {
+        return "🐱：☆☆☆";
+      }
+      if (this.jankenCount == 1) {
+        return "🐱：★☆☆";
+      }
+      if (this.jankenCount == 2) {
+        return "🐱：★★☆";
+      }
+      if (this.jankenCount >= 3) {
+        return "🐱：★★★[!!!CAT POWER MAX!!!]";
+      }
     },
     emoji(hand) {
       if (hand == "グー") {
@@ -69,6 +86,7 @@ export default {
         this.jankenCount = 0;
       }
     },
+
     hantei() {
       const win = "あなたの勝ち！";
       const lose = "コンピュータの勝ち！";
