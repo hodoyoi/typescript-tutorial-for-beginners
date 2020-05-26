@@ -2,12 +2,14 @@
   <div>
     <h1>じゃんけんマシーン</h1>
     <div>人間の手: {{ humanHand }}</div>
+    <h1>{{ humanpic }}</h1>
     <div>コンピュータの手: {{ comHand }}</div>
+    <h1>{{ compic }}</h1>
     <div>
       <a href="#" class="btn btn-lg btn-primary" @click="onJanken('グー')">グー</a>
       <a href="#" class="btn btn-lg btn-primary" @click="onJanken('チョキ')">チョキ</a>
       <a href="#" class="btn btn-lg btn-primary" @click="onJanken('パー')">パー</a>
-      <a href="#" class="btn btn-lg btn-primary" @click="onJanken('グーチョキパー')" v-if="availableGuChokiPa()">グーチョキパー</a>
+      <a href="#" class="btn btn-lg btn-primary" @click="onJanken('グーチョキパー')" v-if="availableGuChokiPa()">猫の手を借りる</a>
     </div>
     <h3>カウント: {{ jankenCount }}</h3>
     <h3>勝敗: {{ result }}</h3>
@@ -20,6 +22,8 @@ export default {
     return {
       humanHand: "",
       comHand: "",
+      humanpic: "",
+      compic: "",
       result: "",
       jankenCount: 0,
     };
@@ -27,10 +31,27 @@ export default {
   methods: {
     onJanken(hand) {
       this.humanHand = hand;
+      this.humanpic = this.emoji(this.humanHand);
       this.comHand = this.getComHand();
+      this.compic = this.emoji(this.comHand);
       this.result = this.hantei();
       this.jankenCount++;
       // ジャンケンカウントを1回足す
+    },
+    emoji(hand) {
+      if (hand == "グー") {
+        return "✊";
+      }
+      if (hand == "チョキ") {
+        return "✌";
+      }
+      if (hand == "パー") {
+        return "✋";
+      }
+      if (hand == "グーチョキパー") {
+        return "🐱";
+      }
+      return "💀";
     },
     getComHand() {
       const hands = ["グー", "チョキ", "パー"];
