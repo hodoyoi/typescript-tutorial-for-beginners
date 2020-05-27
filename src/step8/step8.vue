@@ -1,25 +1,30 @@
 <template>
   <div>
     <h1>あっちむいてほいマシーン</h1>
-    <div>人間の手: {{ humanHand }}</div>
-    <h1>{{ humanpic }}</h1>
-    <div>コンピュータの手: {{ comHand }}</div>
-    <h1>{{ compic }}</h1>
+
     <div>
-      <a href="#" class="btn btn-lg btn-primary" @click="onJanken('グー')">グー</a>
-      <a href="#" class="btn btn-lg btn-primary" @click="onJanken('チョキ')">チョキ</a>
-      <a href="#" class="btn btn-lg btn-primary" @click="onJanken('パー')">パー</a>
-      <a href="#" class="btn btn-lg btn-primary" @click="onJanken('グーチョキパー')" v-if="aviableGuChokiPa()">猫の手を借りる</a>
+      <div>人間の手: {{ humanHand }}</div>
+      <h1>{{ humanpic }}</h1>
+      <div>コンピュータの手: {{ comHand }}</div>
+      <h1>{{ compic }}</h1>
+      <div v-if="step >= 1">
+        <a href="#" class="btn btn-lg btn-primary" @click="onJanken('グー')">グー</a>
+        <a href="#" class="btn btn-lg btn-primary" @click="onJanken('チョキ')">チョキ</a>
+        <a href="#" class="btn btn-lg btn-primary" @click="onJanken('パー')">パー</a>
+        <a href="#" class="btn btn-lg btn-primary" @click="onJanken('グーチョキパー')" v-if="aviableGuChokiPa()">猫の手を借りる</a>
+      </div>
+      <h3>カウント: {{ jankenCount }}</h3>
+      <h3>猫エネルギー: {{ energy }}</h3>
+      <h3>勝敗: {{ result }}</h3>
     </div>
-    <h3>カウント: {{ jankenCount }}</h3>
-    <h3>猫エネルギー: {{ energy }}</h3>
-    <h3>勝敗: {{ result }}</h3>
-    <!-- <div v-if="aviableJyankenWin()"> -->
+
     <div>
-      <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ウエ')">↑</a>
-      <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('シタ')">↓</a>
-      <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ミギ')">→</a>
-      <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ヒダリ')">←</a>
+      <div v-if="step == 2">
+        <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ウエ')">↑</a>
+        <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('シタ')">↓</a>
+        <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ミギ')">→</a>
+        <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ヒダリ')">←</a>
+      </div>
       <div>人間の向き: {{ humanMuki }}</div>
       <div>コンピュータの向き: {{ comMuki }}</div>
       <h3>人間の勝敗: {{ hoiResultHuman }}</h3>
@@ -32,6 +37,8 @@
 export default {
   data() {
     return {
+      step: 1,
+
       humanHand: "",
       comHand: "",
       humanpic: "",
@@ -53,14 +60,20 @@ export default {
       this.compic = this.emoji(this.comHand);
       this.result = this.hantei();
       this.jankenCount++;
-      this.reset = this.cooltime();
+      this.cooltime();
       this.energy = this.nekocount();
+      if (this.result == "あなたの勝ち！あっち向いて" || this.result == "コンピュータの勝ち！あっち向いて") {
+        this.step = 2;
+      } else {
+        this.step = 1;
+      }
     },
     onAttimuite(muki) {
       this.humanMuki = muki;
       this.comMuki = this.getComMuki();
       this.hoiResultHuman = this.hoiHanteiHuman();
       this.hoiResultCom = this.hoiHanteiCom();
+      this.step = 1;
     },
     getComMuki() {
       const mukis = ["ウエ", "シタ", "ミギ", "ヒダリ"];
@@ -85,18 +98,18 @@ export default {
       }
       return mokkai;
     },
-    aviableJyankenWin() {
-      if (this.hantei() == win) {
-        return true;
-      }
-      return false;
-    },
-    aviableJyankenLose() {
-      if (this.hantei() == lose) {
-        return true;
-      }
-      return false;
-    },
+    // aviableJyankenWin() {
+    //   if (this.hantei() == win) {
+    //     return true;
+    //   }
+    //   return false;
+    // },
+    // aviableJyankenLose() {
+    //   if (this.hantei() == lose) {
+    //     return true;
+    //   }
+    //   return false;
+    // },
 
     nekocount() {
       if (this.jankenCount == 0) {
