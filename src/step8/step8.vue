@@ -27,15 +27,22 @@
     </div>
 
     <div>
-      <div v-if="step == 2">
-        <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ウエ')">↑</a>
-        <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('シタ')">↓</a>
-        <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ミギ')">→</a>
-        <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ヒダリ')">←</a>
-        <div>人間の向き: {{ humanMuki }}</div>
-        <div>コンピュータの向き: {{ comMuki }}</div>
-        <h3>人間の勝敗: {{ hoiResultHuman }}</h3>
-        <h3>コンピューターの勝敗: {{ hoiResultCom }}</h3>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div>人間の向き: {{ humanMuki }}</div>
+            <div>コンピュータの向き: {{ comMuki }}</div>
+          </div>
+          <div class="col-md-6">
+        <div v-if="step == 2">
+          <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ウエ')">↑</a>
+          <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('シタ')">↓</a>
+          <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ミギ')">→</a>
+          <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ヒダリ')">←</a>
+          <h3>人間の勝敗: {{ hoiResultHuman }}</h3>
+          <h3>コンピューターの勝敗: {{ hoiResultCom }}</h3>
+          </div>
+        </div>
       </div>
     </div>
   </div>
