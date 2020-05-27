@@ -22,7 +22,8 @@
       <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ヒダリ')">←</a>
       <div>人間の向き: {{ humanMuki }}</div>
       <div>コンピュータの向き: {{ comMuki }}</div>
-      <h3>勝敗: {{ hoiResult }}</h3>
+      <h3>人間の勝敗: {{ hoiResultHuman }}</h3>
+      <h3>コンピューターの勝敗: {{ hoiResultCom }}</h3>
     </div>
   </div>
 </template>
@@ -40,7 +41,8 @@ export default {
       energy: "🐱：☆☆☆",
       humanMuki: "",
       comMuki: "",
-      hoiResult: "",
+      hoiResultHuman: "",
+      hoiResultCom: "",
     };
   },
   methods: {
@@ -57,32 +59,45 @@ export default {
     onAttimuite(muki) {
       this.humanMuki = muki;
       this.comMuki = this.getComMuki();
-      this.hoiResult = this.hoiHantei();
+      this.hoiResultHuman = this.hoiHanteiHuman();
+      this.hoiResultCom = this.hoiHanteiCom();
     },
     getComMuki() {
       const mukis = ["ウエ", "シタ", "ミギ", "ヒダリ"];
       const muki = mukis[Math.floor(Math.random() * mukis.length)];
       return muki;
     },
-    hoiHantei() {
+    hoiHanteiHuman() {
       const win = "あなたの勝ち！";
-      const lose = "あなたの負け！";
       const mokkai = "もう一回！";
 
       if (this.humanMuki == this.comMuki) {
         return win;
       }
-      if (this.comMuki == this.humanMuki) {
-        return lose;
+      return mokkai;
+    },
+    hoiHanteiCom() {
+      const win = "コンピューターの勝ち！";
+      const mokkai = "もう一回！";
+
+      if (this.humanMuki == this.comMuki) {
+        return win;
       }
       return mokkai;
     },
-    // aviableJyankenWin() {
-    //   if ((this.hantei() = win)) {
-    //     return true;
-    //   }
-    //   return false;
-    // },
+    aviableJyankenWin() {
+      if (this.hantei() == win) {
+        return true;
+      }
+      return false;
+    },
+    aviableJyankenLose() {
+      if (this.hantei() == lose) {
+        return true;
+      }
+      return false;
+    },
+
     nekocount() {
       if (this.jankenCount == 0) {
         return "🐱：☆☆☆";
@@ -128,7 +143,6 @@ export default {
         this.jankenCount = 0;
       }
     },
-
     hantei() {
       const win = "あなたの勝ち！";
       const lose = "コンピュータの勝ち！";
