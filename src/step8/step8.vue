@@ -144,8 +144,8 @@ export default {
       }
     },
     hantei() {
-      const win = "あなたの勝ち！";
-      const lose = "コンピュータの勝ち！";
+      const win = "あなたの勝ち！あっち向いて";
+      const lose = "コンピュータの勝ち！あっち向いて";
       const draw = "あいこ！";
 
       if (this.humanHand == "グー" && this.comHand == "チョキ") {
