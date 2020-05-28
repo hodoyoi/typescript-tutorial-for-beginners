@@ -41,6 +41,7 @@
           <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ヒダリ')">←</a>
         </div>
         <h3>勝敗: {{ hoiResult }}</h3>
+        <img v-if="hoiResult" src="/static/win.png" />
       </div>
     </div>
   </div>
@@ -97,13 +98,17 @@ export default {
     },
     hoiHantei() {
       const win = "あなたの勝ち！";
+      const winStatus = 1;
       const lose = "コンピューターの勝ち！";
+      const loseStatus = 2;
       const mokkai = "もう一回！";
       if (this.humanMuki == this.comMuki && this.result == "あなたの勝ち！あっち向いて") {
         return win;
+        return winStatus;
       }
       if (this.humanMuki == this.comMuki && this.result == "コンピュータの勝ち！あっち向いて") {
         return lose;
+        return loseStatus;
       }
       return mokkai;
     },
