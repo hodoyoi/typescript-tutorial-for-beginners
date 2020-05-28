@@ -62,8 +62,7 @@ export default {
       comMuki: "",
       humanMukipic: "",
       comMukipic: "",
-      hoiResultHuman: "",
-      hoiResultCom: "",
+      hoiResult: "",
     };
   },
   methods: {
@@ -100,10 +99,10 @@ export default {
       const win = "あなたの勝ち！";
       const lose = "コンピューターの勝ち！";
       const mokkai = "もう一回！";
-      if (this.humanMuki == this.comMuki && this.hantei(win)) {
+      if (this.humanMuki == this.comMuki && this.result == "あなたの勝ち！あっち向いて") {
         return win;
       }
-      if (this.humanMuki == this.comMuki && this.hantei(lose)) {
+      if (this.humanMuki == this.comMuki && this.result == "コンピュータの勝ち！あっち向いて") {
         return lose;
       }
       return mokkai;
