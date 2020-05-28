@@ -31,7 +31,7 @@
           <a href="#" class="btn btn-lg btn-primary" @click="onJanken('パー')">パー</a>
           <a href="#" class="btn btn-lg btn-primary" @click="onJanken('グーチョキパー')" v-if="aviableGuChokiPa()">猫の手を借りる</a>
         </div>
-        <h3>カウント: {{ jankenCount }}</h3>
+        <!-- <h3>カウント: {{ jankenCount }}</h3> -->
         <h3>猫エネルギー: {{ energy }}</h3>
         <h3>勝敗: {{ result }}</h3>
         <div v-if="step == 2">
