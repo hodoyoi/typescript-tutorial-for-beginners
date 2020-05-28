@@ -42,7 +42,6 @@
       <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ミギ')">→</a>
       <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ヒダリ')">←</a>
     </div>
-    <h5 class="card-title">人間の向き: {{ humanMuki }}</h5>
     <h1>{{ humanMukipic }}</h1>
     <h3>人間の勝敗: {{ hoiResultHuman }}</h3>
     <h3>コンピューターの勝敗: {{ hoiResultCom }}</h3>
