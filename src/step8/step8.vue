@@ -33,7 +33,7 @@
         </div>
         <!-- <h3>カウント: {{ jankenCount }}</h3> -->
         <h3>猫エネルギー: {{ energy }}</h3>
-        <h3>勝敗: {{ result }}</h3>
+        <h3>じゃんけん: {{ result }}</h3>
         <div v-if="step == 2">
           <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ウエ')">↑</a>
           <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('シタ')">↓</a>
