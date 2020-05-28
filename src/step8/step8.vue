@@ -40,8 +40,7 @@
           <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ミギ')">→</a>
           <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ヒダリ')">←</a>
         </div>
-        <h3>人間の勝敗: {{ hoiResultHuman }}</h3>
-        <h3>コンピューターの勝敗: {{ hoiResultCom }}</h3>
+        <h3>勝敗: {{ hoiResult }}</h3>
       </div>
     </div>
   </div>
@@ -88,8 +87,7 @@ export default {
       this.humanMukipic = this.emojiMuki(this.humanMuki);
       this.comMuki = this.getComMuki();
       this.comMukipic = this.emojiMuki(this.comMuki);
-      this.hoiResultHuman = this.hoiHanteiHuman();
-      this.hoiResultCom = this.hoiHanteiCom();
+      this.hoiResult = this.hoiHantei();
       this.step = 1;
     },
     getComMuki() {
@@ -97,19 +95,15 @@ export default {
       const muki = mukis[Math.floor(Math.random() * mukis.length)];
       return muki;
     },
-    hoiHanteiHuman() {
+    hoiHantei() {
       const win = "あなたの勝ち！";
+      const lose = "コンピューターの勝ち！";
       const mokkai = "もう一回！";
-      if (this.humanMuki == this.comMuki) {
+      if (this.humanMuki == this.comMuki && this.hantei(win)) {
         return win;
       }
-      return mokkai;
-    },
-    hoiHanteiCom() {
-      const win = "コンピューターの勝ち！";
-      const mokkai = "もう一回！";
-      if (this.humanMuki == this.comMuki) {
-        return win;
+      if (this.humanMuki == this.comMuki && this.hantei(lose)) {
+        return lose;
       }
       return mokkai;
     },
@@ -205,4 +199,3 @@ export default {
   },
 };
 </script>
-© 2020 GitHub, Inc. Terms Privacy Security Status Help Contact GitHub Pricing API Training Blog About
