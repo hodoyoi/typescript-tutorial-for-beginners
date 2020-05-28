@@ -91,6 +91,7 @@ export default {
       this.step = 1;
     },
     getComMuki() {
+      return "ウエ";
       const mukis = ["ウエ", "シタ", "ミギ", "ヒダリ"];
       const muki = mukis[Math.floor(Math.random() * mukis.length)];
       return muki;
@@ -151,6 +152,7 @@ export default {
       }
     },
     getComHand() {
+      return "グー";
       const hands = ["グー", "チョキ", "パー"];
       const hand = hands[Math.floor(Math.random() * hands.length)];
       return hand;
