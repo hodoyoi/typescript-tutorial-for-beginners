@@ -34,17 +34,16 @@
         <h3>カウント: {{ jankenCount }}</h3>
         <h3>猫エネルギー: {{ energy }}</h3>
         <h3>勝敗: {{ result }}</h3>
+        <div v-if="step == 2">
+          <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ウエ')">↑</a>
+          <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('シタ')">↓</a>
+          <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ミギ')">→</a>
+          <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ヒダリ')">←</a>
+        </div>
+        <h3>人間の勝敗: {{ hoiResultHuman }}</h3>
+        <h3>コンピューターの勝敗: {{ hoiResultCom }}</h3>
       </div>
     </div>
-    <div v-if="step == 2">
-      <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ウエ')">↑</a>
-      <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('シタ')">↓</a>
-      <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ミギ')">→</a>
-      <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ヒダリ')">←</a>
-    </div>
-    <h1>{{ humanMukipic }}</h1>
-    <h3>人間の勝敗: {{ hoiResultHuman }}</h3>
-    <h3>コンピューターの勝敗: {{ hoiResultCom }}</h3>
   </div>
 </template>
 
