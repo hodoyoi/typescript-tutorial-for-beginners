@@ -42,9 +42,9 @@
           <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ヒダリ')">←</a>
         </div>
         <h3 v-if="winStatus == 1 || winStatus == 2">勝敗: {{ hoiResult }}</h3>
+        <h3 v-if="winStatus == 3" style="color: red;">{{ hoiResult }}</h3>
         <img v-if="winStatus == 1" src="/static/win.png" />
         <img v-if="winStatus == 2" src="/static/lose.png" />
-        <h5>{{ winStatus }}</h5>
       </div>
     </div>
   </div>
@@ -113,6 +113,7 @@ export default {
         this.winStatus = 2;
         return lose;
       }
+      this.winStatus = 3;
       return mokkai;
     },
     nekocount() {
