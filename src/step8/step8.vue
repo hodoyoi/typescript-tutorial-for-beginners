@@ -9,7 +9,7 @@
         <a href="#" class="btn btn-lg btn-primary mx-auto" @click="onStart()">すたーと</a>
       </div>
     </div>
-    <div v-if="step >= 1">
+    <div v-if="step == 1 || step == 2">
       <div class="row">
         <div class="col-md-3">
           <div class="card">
@@ -41,21 +41,31 @@
           <h3>猫エネルギー: {{ energy }}</h3>
         </div>
         <!-- <h3>カウント: {{ jankenCount }}</h3> -->
-        <div class="col-md-6">
-          <div v-if="step == 2">
-            <h3>じゃんけん: {{ result }}</h3>
-            <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ウエ')">↑</a>
-            <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('シタ')">↓</a>
-            <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ミギ')">→</a>
-            <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ヒダリ')">←</a>
-          </div>
-          <div v-if="this.step == 3">
-            <h3 v-if="winStatus == 1 || winStatus == 2">勝敗: {{ hoiResult }}</h3>
-            <h3 v-if="winStatus == 3" style="color: red;">{{ hoiResult }}</h3>
-            <img v-if="winStatus == 1" src="/static/win.png" />
-            <img v-if="winStatus == 2" src="/static/lose.png" />
-          </div>
+        <div v-if="step == 2" class="col-md-6">
+          <h3>じゃんけん: {{ result }}</h3>
+          <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ウエ')">↑</a>
+          <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('シタ')">↓</a>
+          <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ミギ')">→</a>
+          <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ヒダリ')">←</a>
         </div>
+      </div>
+    </div>
+    <div v-if="step == 3">
+      <div class="row">
+        <h3 style="color: red;">{{ hoiResult }}</h3>
+        <img class="mx-auto" src="/static/win.png" />
+      </div>
+      <div class="row">
+        <a href="#" class="btn btn-lg btn-primary mx-auto" @click="onStart()">もっかい</a>
+      </div>
+    </div>
+    <div v-if="step == 4">
+      <div class="row">
+        <h3 style="color: red;">{{ hoiResult }}</h3>
+        <img class="mx-auto" src="/static/lose.png" />
+      </div>
+      <div class="row">
+        <a href="#" class="btn btn-lg btn-primary mx-auto" @click="onStart()">もっかい</a>
       </div>
     </div>
   </div>
@@ -107,7 +117,6 @@ export default {
       this.comMuki = this.getComMuki();
       this.comMukipic = this.emojiMuki(this.comMuki);
       this.hoiResult = this.hoiHantei();
-      this.step = 1;
     },
     getComMuki() {
       return "ウエ";
