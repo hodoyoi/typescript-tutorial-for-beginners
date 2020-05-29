@@ -26,7 +26,7 @@
           <div class="card">
             <img src="/static/cpu.png" class="img card-img-top" />
             <div class="card-body">
-              <h5 class="card-title">CPUの手: {{ comHand }}</h5>
+              <h5 class="card-title">CPUの手:{{ comHand }}</h5>
               <h1>{{ compic }}</h1>
               <h5 class="card-title">CPUの向き: {{ comMuki }}</h5>
               <h1>{{ comMukipic }}</h1>
@@ -95,6 +95,15 @@ export default {
   methods: {
     onStart() {
       this.step = 1;
+      this.humanHand = "";
+      this.humanpic = "";
+      this.humanMuki = "";
+      this.humanMukipic = "";
+      this.comHand = "";
+      this.compic = "";
+      this.comMuki = "";
+      this.comMukipic = "";
+      this.energy = 0;
     },
     onJanken(hand) {
       this.humanHand = hand;
