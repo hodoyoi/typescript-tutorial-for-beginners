@@ -17,6 +17,9 @@
             <div class="card-body">
               <h5 class="card-title">人間の手: {{ humanHand }}</h5>
               <h1>{{ humanpic }}</h1>
+              <div v-if="this.realHand == 1">
+                <img src="/static/g_logo.png" alt="" />
+              </div>
               <h5 class="card-title">人間の向き: {{ humanMuki }}</h5>
               <h1>{{ humanMukipic }}</h1>
             </div>
@@ -90,6 +93,7 @@ export default {
       humanMukipic: "",
       comMukipic: "",
       hoiResult: "",
+      realHand: "",
     };
   },
   methods: {
@@ -104,6 +108,7 @@ export default {
       this.comMuki = "";
       this.comMukipic = "";
       this.energy = 0;
+      this.realHand = "";
     },
     onJanken(hand) {
       this.humanHand = hand;
@@ -168,6 +173,7 @@ export default {
     },
     emoji(hand) {
       if (hand == "グー") {
+        this.realHand = 1;
         return "✊";
       }
       if (hand == "チョキ") {
