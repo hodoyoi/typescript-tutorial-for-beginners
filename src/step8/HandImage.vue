@@ -21,6 +21,9 @@ export default {
       if (this.sign == "パー") {
         return "/static/step8/janken_pa.png";
       }
+      if (this.sign == "グーチョキパー") {
+        return "/static/step8/janken_gutyokipa.png";
+      }
     },
   },
 };

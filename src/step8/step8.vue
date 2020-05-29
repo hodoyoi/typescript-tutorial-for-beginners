@@ -32,6 +32,7 @@
           </div>
         </div>
         <div v-if="step == 1" class="col-md-6">
+          <h3>じゃんけん: {{ result }}</h3>
           <a href="#" class="btn btn-lg btn-primary" @click="onJanken('グー')">グー</a>
           <a href="#" class="btn btn-lg btn-primary" @click="onJanken('チョキ')">チョキ</a>
           <a href="#" class="btn btn-lg btn-primary" @click="onJanken('パー')">パー</a>
@@ -107,8 +108,10 @@ export default {
       this.compic = "";
       this.comMuki = "";
       this.comMukipic = "";
-      this.energy = 0;
+      this.energy = "🐱：☆☆☆";
       this.realHand = "";
+      this.result = "";
+      this.jankenCount = 0;
     },
     onJanken(hand) {
       this.humanHand = hand;
@@ -173,7 +176,6 @@ export default {
     },
     emoji(hand) {
       if (hand == "グー") {
-        this.realHand = 1;
         return "✊";
       }
       if (hand == "チョキ") {
