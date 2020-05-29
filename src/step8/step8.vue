@@ -25,14 +25,15 @@
         </div>
       </div>
       <div class="col-md-6">
-        <div v-if="step >= 1">
+        <div v-if="step == 1">
           <a href="#" class="btn btn-lg btn-primary" @click="onJanken('グー')">グー</a>
           <a href="#" class="btn btn-lg btn-primary" @click="onJanken('チョキ')">チョキ</a>
           <a href="#" class="btn btn-lg btn-primary" @click="onJanken('パー')">パー</a>
           <a href="#" class="btn btn-lg btn-primary" @click="onJanken('グーチョキパー')" v-if="aviableGuChokiPa()">猫の手を借りる</a>
+          <h3>猫エネルギー: {{ energy }}</h3>
         </div>
         <!-- <h3>カウント: {{ jankenCount }}</h3> -->
-        <h3>猫エネルギー: {{ energy }}</h3>
+
         <h3>じゃんけん: {{ result }}</h3>
         <div v-if="step == 2">
           <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ウエ')">↑</a>
@@ -40,7 +41,7 @@
           <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ミギ')">→</a>
           <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ヒダリ')">←</a>
         </div>
-        <h3>勝敗: {{ hoiResult }}</h3>
+        <h3 v-if="winStatus == 1 || winStatus == 2">勝敗: {{ hoiResult }}</h3>
         <img v-if="winStatus == 1" src="/static/win.png" />
         <img v-if="winStatus == 2" src="/static/lose.png" />
         <h5>{{ winStatus }}</h5>
@@ -72,6 +73,7 @@ export default {
   methods: {
     onJanken(hand) {
       this.humanHand = hand;
+      this.winStatus = 0;
       this.humanpic = this.emoji(this.humanHand);
       this.comHand = this.getComHand();
       this.compic = this.emoji(this.comHand);
