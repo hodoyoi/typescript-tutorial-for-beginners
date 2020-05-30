@@ -128,6 +128,8 @@ export default {
       } else {
         this.step = 1;
       }
+      this.humanMukipic = "";
+      this.comMukipic = "";
     },
     onAttimuite(muki) {
       this.humanMuki = muki;
