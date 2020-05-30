@@ -38,7 +38,7 @@
           <a href="#" class="btn btn-lg btn-primary" @click="onJanken('パー')">パー</a>
           <a href="#" class="btn btn-lg btn-primary" @click="onJanken('グーチョキパー')" v-if="aviableGuChokiPa()">猫の手を借りる</a>
           <h3>猫エネルギー: {{ energy }}</h3>
-          <h3 v-if="winStatus == 3">{{ hoiResult }}</h3>
+          <h3 v-if="winStatus == 3" style="color: red;">{{ hoiResult }}</h3>
         </div>
         <!-- <h3>カウント: {{ jankenCount }}</h3> -->
         <div v-if="step == 2" class="col-md-6">
@@ -160,6 +160,7 @@ export default {
       }
       this.winStatus = 3;
       this.step = 1;
+      this.result = "";
       return mokkai;
     },
     nekocount() {
