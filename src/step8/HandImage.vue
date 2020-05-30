@@ -24,6 +24,7 @@ export default {
       if (this.sign == "グーチョキパー") {
         return "/static/step8/janken_gutyokipa.png";
       }
+      return "/static/step8/blank.png";
     },
   },
 };

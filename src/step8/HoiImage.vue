@@ -24,6 +24,7 @@ export default {
       if (this.hoi == "ヒダリ") {
         return "/static/step8/hoi_hidari.png";
       }
+      return "/static/step8/blank.png";
     },
   },
 };
