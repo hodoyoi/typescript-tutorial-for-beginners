@@ -106,6 +106,8 @@ export default {
   methods: {
     onReStart() {
       this.step = 1;
+      this.humanHand = "";
+      this.comHand = "";
       this.humanMukipic = "";
       this.comMukipic = "";
     },
@@ -166,8 +168,6 @@ export default {
       this.winStatus = 3;
       this.step = 5;
       this.result = "";
-      this.humanHand = "";
-      this.comHand = "";
       return mokkai;
     },
     nekocount() {
