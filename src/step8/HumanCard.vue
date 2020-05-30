@@ -9,3 +9,13 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    card: {
+      type: String,
+    },
+  },
+};
+</script>

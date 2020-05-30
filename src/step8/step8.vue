@@ -135,8 +135,8 @@
 <script>
 import HandImage from "./HandImage.vue";
 import HoiImage from "./HoiImage.vue";
-// import HumanCard from "./HumanCard";
-// import CpuCard from "./CpuCard";
+// import HumanCard from "./HumanCard.vue";
+// import CpuCard from "./CpuCard.vue";
 
 export default {
   components: {
@@ -197,7 +197,7 @@ export default {
       this.hoiResult = this.hoiHantei();
     },
     getComMuki() {
-      // return "ウエ";
+      return "ウエ";
       const mukis = ["ウエ", "シタ", "ミギ", "ヒダリ"];
       const muki = mukis[Math.floor(Math.random() * mukis.length)];
       return muki;
@@ -236,7 +236,7 @@ export default {
       }
     },
     getComHand() {
-      // return "グー";
+      return "グー";
       const hands = ["グー", "チョキ", "パー"];
       const hand = hands[Math.floor(Math.random() * hands.length)];
       return hand;
