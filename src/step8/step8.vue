@@ -26,8 +26,7 @@
             <img src="/static/cpu.png" class="img card-img-top" />
             <div class="card-body">
               <h5 class="card-title">CPUの手: <hand-image :sign="comHand"></hand-image></h5>
-              <h5 class="card-title">CPUの向き: {{ comMuki }}</h5>
-              <h1>{{ comMukipic }}</h1>
+              <h5 class="card-title">CPUの向き: {{ comMukipic }}</h5>
             </div>
           </div>
         </div>
@@ -93,8 +92,6 @@ export default {
       winStatus: 0,
       humanHand: "",
       comHand: "",
-      humanpic: "",
-      compic: "",
       result: "",
       jankenCount: 0,
       energy: "🐱：☆☆☆",
@@ -109,7 +106,8 @@ export default {
   methods: {
     onReStart() {
       this.step = 1;
-      this.HandImage = "";
+      this.humanMukipic = "";
+      this.comMukipic = "";
     },
     onStart() {
       this.step = 1;
@@ -137,8 +135,6 @@ export default {
       } else {
         this.step = 1;
       }
-      this.humanMukipic = "";
-      this.comMukipic = "";
     },
     onAttimuite(muki) {
       this.humanMuki = muki;
@@ -170,8 +166,8 @@ export default {
       this.winStatus = 3;
       this.step = 5;
       this.result = "";
-      this.humanpic = "";
-      this.compic = "";
+      this.humanHand = "";
+      this.comHand = "";
       return mokkai;
     },
     nekocount() {
