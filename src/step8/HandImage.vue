@@ -1,5 +1,5 @@
 <template>
-  <img v-bind:src="signSrc()" v-on:click="alert('hoge')" />
+  <img v-bind:src="signSrc()" />
 </template>
 
 <script>
@@ -24,6 +24,7 @@ export default {
       if (this.sign == "グーチョキパー") {
         return "/static/step8/janken_gutyokipa.png";
       }
+      return "/static/step8/blank.png";
     },
   },
 };
