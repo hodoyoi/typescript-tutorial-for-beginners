@@ -1,5 +1,5 @@
 <template>
-  <img v-bind:src="signSrc()" v-on:click="alert('hoge')" />
+  <img v-bind:src="signSrc()" />
 </template>
 
 <script>

@@ -165,10 +165,10 @@ export default {
     },
     onStart() {
       this.step = 1;
-      // this.humanHand = "";
-      // this.humanMuki = "";
-      // this.comHand = "";
-      // this.comMuki = "";
+      this.humanHand = "";
+      this.humanMuki = "";
+      this.comHand = "";
+      this.comMuki = "";
       this.energy = "🐱：☆☆☆";
       this.result = "";
       this.jankenCount = 0;

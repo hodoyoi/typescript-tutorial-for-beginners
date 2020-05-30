@@ -1,5 +1,5 @@
 <template>
-  <img v-bind:src="hoiSrc()" v-on:click="alert('hoge')" />
+  <img v-bind:src="hoiSrc()" />
 </template>
 
 <script>
