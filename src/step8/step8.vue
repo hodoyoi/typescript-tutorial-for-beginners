@@ -68,6 +68,15 @@
         <a href="#" class="btn btn-lg btn-primary mx-auto" @click="onStart()">もっかい</a>
       </div>
     </div>
+    <div v-if="step == 5">
+      <div class="row">
+        <h3 style="color: red;">{{ hoiResult }}</h3>
+        <img class="mx-auto" src="/static/draw.png" />
+      </div>
+      <div class="row">
+        <a href="#" class="btn btn-lg btn-primary mx-auto" @click="onReStart()">もっかい</a>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -98,6 +107,9 @@ export default {
     };
   },
   methods: {
+    onReStart() {
+      this.step = 1;
+    },
     onStart() {
       this.step = 1;
       this.humanHand = "";
@@ -159,7 +171,7 @@ export default {
         return lose;
       }
       this.winStatus = 3;
-      this.step = 1;
+      this.step = 5;
       this.result = "";
       return mokkai;
     },
