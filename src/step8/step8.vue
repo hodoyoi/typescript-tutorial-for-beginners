@@ -16,8 +16,7 @@
             <img src="/static/human.png" class="img card-img-top" />
             <div class="card-body">
               <h5 class="card-title">人間の手: <hand-image :sign="humanHand"></hand-image></h5>
-              <h5 class="card-title">人間の向き: {{ humanMuki }}</h5>
-              <h1>{{ humanMukipic }}</h1>
+              <h5 class="card-title">人間の向き: <hoi-image :hoi="humanMuki"></hoi-image></h5>
             </div>
           </div>
         </div>
@@ -26,7 +25,7 @@
             <img src="/static/cpu.png" class="img card-img-top" />
             <div class="card-body">
               <h5 class="card-title">CPUの手: <hand-image :sign="comHand"></hand-image></h5>
-              <h5 class="card-title">CPUの向き: {{ comMukipic }}</h5>
+              <h5 class="card-title">CPUの向き: <hoi-image :hoi="comMuki"></hoi-image></h5>
             </div>
           </div>
         </div>
@@ -81,10 +80,12 @@
 
 <script>
 import HandImage from "./HandImage.vue";
+import HoiImage from "./HoiImage.vue";
 
 export default {
   components: {
     HandImage,
+    HoiImage,
   },
   data() {
     return {
@@ -100,7 +101,7 @@ export default {
       humanMukipic: "",
       comMukipic: "",
       hoiResult: "",
-      realHand: "",
+      // realHand: "",
     };
   },
   methods: {
@@ -120,7 +121,7 @@ export default {
       this.comMuki = "";
       this.comMukipic = "";
       this.energy = "🐱：☆☆☆";
-      this.realHand = "";
+      // this.realHand = "";
       this.result = "";
       this.jankenCount = 0;
     },
@@ -146,7 +147,7 @@ export default {
       this.hoiResult = this.hoiHantei();
     },
     getComMuki() {
-      return "ウエ";
+      // return "ウエ";
       const mukis = ["ウエ", "シタ", "ミギ", "ヒダリ"];
       const muki = mukis[Math.floor(Math.random() * mukis.length)];
       return muki;
