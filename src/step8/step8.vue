@@ -109,15 +109,14 @@ export default {
   methods: {
     onReStart() {
       this.step = 1;
+      this.HandImage = "";
     },
     onStart() {
       this.step = 1;
       this.humanHand = "";
-      this.humanpic = "";
       this.humanMuki = "";
       this.humanMukipic = "";
       this.comHand = "";
-      this.compic = "";
       this.comMuki = "";
       this.comMukipic = "";
       this.energy = "🐱：☆☆☆";
@@ -128,9 +127,7 @@ export default {
     onJanken(hand) {
       this.humanHand = hand;
       this.winStatus = 0;
-      this.humanpic = this.emoji(this.humanHand);
       this.comHand = this.getComHand();
-      this.compic = this.emoji(this.comHand);
       this.result = this.hantei();
       this.jankenCount++;
       this.cooltime();
@@ -173,6 +170,8 @@ export default {
       this.winStatus = 3;
       this.step = 5;
       this.result = "";
+      this.humanpic = "";
+      this.compic = "";
       return mokkai;
     },
     nekocount() {
@@ -188,21 +187,6 @@ export default {
       if (this.jankenCount >= 3) {
         return "🐱：★★★[!!!CAT POWER MAX!!!]";
       }
-    },
-    emoji(hand) {
-      if (hand == "グー") {
-        return "✊";
-      }
-      if (hand == "チョキ") {
-        return "✌";
-      }
-      if (hand == "パー") {
-        return "✋";
-      }
-      if (hand == "グーチョキパー") {
-        return "🐱";
-      }
-      return "💀";
     },
     emojiMuki(muki) {
       if (muki == "ウエ") {
