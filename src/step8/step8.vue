@@ -1,45 +1,34 @@
 <template>
-  <div class="container">
-    <b-container class="bv-example-row">
-      <!-- Stack the columns on mobile by making one full-width and the other half-width -->
-      <b-row>
-        <b-col cols="12" md="8">
-          <b-alert show>cols="12" md="8"</b-alert>
-        </b-col>
-        <b-col cols="6" md="4">
-          <b-alert show>cols="6" md="4"</b-alert>
-        </b-col>
-      </b-row>
-    </b-container>
+  <b-container>
     <div v-if="step == 0">
-      <div class="row">
+      <b-row>
         <img class="mx-auto img-fluid" src="/static/start.png" />
-      </div>
-      <div class="row">
-        <a href="#" class="btn btn-lg btn-primary mx-auto" @click="onStart()">すたーと</a>
-      </div>
+      </b-row>
+      <b-row>
+        <b-button class="mx-auto" variant="primary" size="lg" @click="onStart()">すたーと</b-button>
+      </b-row>
     </div>
-    <div v-if="step == 1 || step == 2">
-      <div class="row">
-        <div class="col-6 col-md-3">
-          <div class="card">
+    <b-row v-if="step == 1 || step == 2">
+      <b-row>
+        <b-col cols="6" md="3">
+          <b-card>
             <img src="/static/human.png" class="img card-img-top" />
             <div class="card-body">
               <h5 class="card-title">人間の手: <hand-image :sign="humanHand"></hand-image></h5>
               <h5 class="card-title">人間の向き: <hoi-image :hoi="humanMuki"></hoi-image></h5>
             </div>
-          </div>
-        </div>
-        <div class="col-6 col-md-3">
-          <div class="card">
+          </b-card>
+        </b-col>
+        <b-col cols="6" md="3">
+          <b-card>
             <img src="/static/cpu.png" class="img card-img-top" />
             <div class="card-body">
               <h5 class="card-title">CPUの手: <hand-image :sign="comHand"></hand-image></h5>
               <h5 class="card-title">CPUの向き: <hoi-image :hoi="comMuki"></hoi-image></h5>
             </div>
-          </div>
-        </div>
-        <div v-if="step == 1" class="col-12 col-md-6">
+          </b-card>
+        </b-col>
+        <b-col v-if="step == 1" cols="12" md="6">
           <h3>じゃんけん: {{ result }}</h3>
           <a href="#" class="btn btn-lg btn-primary" @click="onJanken('グー')">グー</a>
           <a href="#" class="btn btn-lg btn-primary" @click="onJanken('チョキ')">チョキ</a>
@@ -47,7 +36,7 @@
           <a href="#" class="btn btn-lg btn-primary" @click="onJanken('グーチョキパー')" v-if="aviableGuChokiPa()">猫の手を借りる</a>
           <h3>猫エネルギー: {{ energy }}</h3>
           <h3 v-if="winStatus == 3" style="color: red;">{{ hoiResult }}</h3>
-        </div>
+        </b-col>
         <!-- <h3>カウント: {{ jankenCount }}</h3> -->
         <div v-if="step == 2" class="col-md-6">
           <h3>じゃんけん: {{ result }}</h3>
@@ -56,104 +45,100 @@
           <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ミギ')">→</a>
           <a href="#" class="btn btn-lg btn-primary" @click="onAttimuite('ヒダリ')">←</a>
         </div>
-      </div>
-    </div>
+      </b-row>
+    </b-row>
     <div v-if="step == 3">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="card">
+      <b-row>
+        <b-col cols="6" md="3">
+          <b-card>
             <img src="/static/human.png" class="img card-img-top" />
             <div class="card-body">
               <h5 class="card-title">人間の手: <hand-image :sign="humanHand"></hand-image></h5>
               <h5 class="card-title">人間の向き: <hoi-image :hoi="humanMuki"></hoi-image></h5>
             </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
+          </b-card>
+        </b-col>
+        <b-col cols="6" md="3">
+          <b-card>
             <img src="/static/cpu.png" class="img card-img-top" />
             <div class="card-body">
               <h5 class="card-title">CPUの手: <hand-image :sign="comHand"></hand-image></h5>
               <h5 class="card-title">CPUの向き: <hoi-image :hoi="comMuki"></hoi-image></h5>
             </div>
-          </div>
-        </div>
-        <div class="col-md-6">
+          </b-card>
+        </b-col>
+        <b-col cols="12" md="6">
           <h3 style="color: red;">{{ hoiResult }}</h3>
           <img class="mx-auto img-fluid" src="/static/win.png" />
           <a href="#" class="btn btn-lg btn-primary" @click="onStart()">もっかい</a>
-        </div>
-      </div>
+        </b-col>
+      </b-row>
     </div>
     <div v-if="step == 4">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="card">
+      <b-row>
+        <b-col cols="6" md="3">
+          <b-card>
             <img src="/static/human.png" class="img card-img-top" />
             <div class="card-body">
               <h5 class="card-title">人間の手: <hand-image :sign="humanHand"></hand-image></h5>
               <h5 class="card-title">人間の向き: <hoi-image :hoi="humanMuki"></hoi-image></h5>
             </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
+          </b-card>
+        </b-col>
+        <b-col cols="6" md="3">
+          <b-card>
             <img src="/static/cpu.png" class="img card-img-top" />
             <div class="card-body">
               <h5 class="card-title">CPUの手: <hand-image :sign="comHand"></hand-image></h5>
               <h5 class="card-title">CPUの向き: <hoi-image :hoi="comMuki"></hoi-image></h5>
             </div>
-          </div>
-        </div>
-        <div class="col-md-6">
+          </b-card>
+        </b-col>
+        <b-col cols="12" md="6">
           <h3 style="color: red;">{{ hoiResult }}</h3>
           <img class="mx-auto img-fluid" src="/static/lose.png" />
           <a href="#" class="btn btn-lg btn-primary mx-auto" @click="onStart()">もっかい</a>
-        </div>
-      </div>
+        </b-col>
+      </b-row>
     </div>
     <div v-if="step == 5">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="card">
+      <b-row>
+        <b-col cols="6" md="3">
+          <b-card>
             <img src="/static/human.png" class="img card-img-top" />
             <div class="card-body">
               <h5 class="card-title">人間の手: <hand-image :sign="humanHand"></hand-image></h5>
               <h5 class="card-title">人間の向き: <hoi-image :hoi="humanMuki"></hoi-image></h5>
             </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
+          </b-card>
+        </b-col>
+        <b-col cols="6" md="3">
+          <b-card>
             <img src="/static/cpu.png" class="img card-img-top" />
             <div class="card-body">
               <h5 class="card-title">CPUの手: <hand-image :sign="comHand"></hand-image></h5>
               <h5 class="card-title">CPUの向き: <hoi-image :hoi="comMuki"></hoi-image></h5>
             </div>
-          </div>
-        </div>
-        <div class="col-md-6">
+          </b-card>
+        </b-col>
+        <b-col cols="12" md="6">
           <h3 style="color: red;">{{ hoiResult }}</h3>
           <img class="mx-auto img-fluid" src="/static/draw.png" />
           <a href="#" class="btn btn-lg btn-primary mx-auto" @click="onReStart()">もっかい</a>
-        </div>
-      </div>
+        </b-col>
+      </b-row>
     </div>
-  </div>
+  </b-container>
 </template>
 
 <script>
 import HandImage from "./HandImage.vue";
 import HoiImage from "./HoiImage.vue";
-// import HumanCard from "./HumanCard.vue";
-// import CpuCard from "./CpuCard.vue";
 
 export default {
   components: {
     HandImage,
     HoiImage,
-    // HumanCard,
-    // CpuCard,
   },
   data() {
     return {
