@@ -1,5 +1,16 @@
 <template>
   <div class="container">
+    <b-container class="bv-example-row">
+      <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+      <b-row>
+        <b-col cols="12" md="8">
+          <b-alert show>cols="12" md="8"</b-alert>
+        </b-col>
+        <b-col cols="6" md="4">
+          <b-alert show>cols="6" md="4"</b-alert>
+        </b-col>
+      </b-row>
+    </b-container>
     <div v-if="step == 0">
       <div class="row">
         <img class="mx-auto img-fluid" src="/static/start.png" />
