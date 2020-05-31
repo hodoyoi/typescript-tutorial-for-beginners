@@ -1,6 +1,11 @@
 // Bootstrapの読み込み
 import "./index.scss";
 import "bootstrap";
+import BootstrapVue from "bootstrap-vue";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-vue/dist/bootstrap-vue.css";
+
+Vue.use(BootstrapVue);
 
 // import "./step1.ts";
 // import "./step2.ts";
