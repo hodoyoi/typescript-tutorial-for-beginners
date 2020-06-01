@@ -209,9 +209,9 @@
         </b-col>
       </b-row>
     </div>
-    <div id="footer">
-      <h5 class="text-center">typescript-tutorial-for-beginners</h5>
-    </div>
+    <b-row>
+      <img id="footer" class="mx-auto" src="/static/hoi_logo.png" />
+    </b-row>
   </b-container>
 </template>
 
@@ -377,10 +377,5 @@ export default {
 <style scoped>
 #start img {
   height: 60%;
-}
-#footer {
-  position: absolute;
-  bottom: 0;
-  background-color: mediumaquamarine;
 }
 </style>
