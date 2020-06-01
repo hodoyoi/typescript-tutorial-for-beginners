@@ -209,6 +209,9 @@
         </b-col>
       </b-row>
     </div>
+    <div id="footer">
+      <h5 class="text-center">typescript-tutorial-for-beginners</h5>
+    </div>
   </b-container>
 </template>
 
@@ -375,7 +378,9 @@ export default {
 #start img {
   height: 60%;
 }
-.footer {
+#footer {
+  position: absolute;
+  bottom: 0;
   background-color: mediumaquamarine;
 }
 </style>
