@@ -4,7 +4,7 @@
       <b-row>
         <img id="start" class="mx-auto img-fluid" src="/static/start.png" />
       </b-row>
-      <b-row>
+      <b-row class="py-2">
         <b-button class="mx-auto" variant="primary" size="lg" @click="onStart()">すたーと</b-button>
       </b-row>
     </div>
@@ -209,9 +209,6 @@
         </b-col>
       </b-row>
     </div>
-    <b-row>
-      <img id="footer" class="mx-auto" src="/static/hoi_logo.png" />
-    </b-row>
   </b-container>
 </template>
 
