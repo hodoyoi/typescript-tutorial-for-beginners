@@ -78,7 +78,7 @@
       <b-row>
         <b-col cols="6" md="3">
           <b-card>
-            <img src="/static/human.png" class="img card-img-top" />
+            <!-- <img src="/static/human.png" class="img card-img-top" /> -->
             <div class="card-body">
               <h5 class="card-title">
                 人間の手:
@@ -93,7 +93,7 @@
         </b-col>
         <b-col cols="6" md="3">
           <b-card>
-            <img src="/static/cpu.png" class="img card-img-top" />
+            <!-- <img src="/static/cpu.png" class="img card-img-top" /> -->
             <div class="card-body">
               <h5 class="card-title">
                 CPUの手:
@@ -128,7 +128,7 @@
       <b-row>
         <b-col cols="6" md="3">
           <b-card>
-            <img src="/static/human.png" class="img card-img-top" />
+            <!-- <img src="/static/human.png" class="img card-img-top" /> -->
             <div class="card-body">
               <h5 class="card-title">
                 人間の手:
@@ -143,7 +143,7 @@
         </b-col>
         <b-col cols="6" md="3">
           <b-card>
-            <img src="/static/cpu.png" class="img card-img-top" />
+            <!-- <img src="/static/cpu.png" class="img card-img-top" /> -->
             <div class="card-body">
               <h5 class="card-title">
                 CPUの手:
@@ -172,7 +172,7 @@
       <b-row>
         <b-col cols="6" md="3">
           <b-card>
-            <img src="/static/human.png" class="img card-img-top" />
+            <!-- <img src="/static/human.png" class="img card-img-top" /> -->
             <div class="card-body">
               <h5 class="card-title">
                 人間の手:
@@ -187,7 +187,7 @@
         </b-col>
         <b-col cols="6" md="3">
           <b-card>
-            <img src="/static/cpu.png" class="img card-img-top" />
+            <!-- <img src="/static/cpu.png" class="img card-img-top" /> -->
             <div class="card-body">
               <h5 class="card-title">
                 CPUの手:
@@ -276,7 +276,7 @@ export default {
       this.hoiResult = this.hoiHantei();
     },
     getComMuki() {
-      return "ウエ";
+      // return "ウエ";
       const mukis = ["ウエ", "シタ", "ミギ", "ヒダリ"];
       const muki = mukis[Math.floor(Math.random() * mukis.length)];
       return muki;
@@ -321,7 +321,7 @@ export default {
       }
     },
     getComHand() {
-      return "グー";
+      // return "グー";
       const hands = ["グー", "チョキ", "パー"];
       const hand = hands[Math.floor(Math.random() * hands.length)];
       return hand;
