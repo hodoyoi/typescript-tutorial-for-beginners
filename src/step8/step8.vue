@@ -2,9 +2,9 @@
   <b-container>
     <div v-if="step == 0">
       <b-row>
-        <b-col cols="12">
-          <img id="start" class="mx-auto img-fluid" src="/static/start.png" />
-        </b-col>
+        <div class="mx-auto">
+          <img id="start" class="img-fluid" src="/static/start.png" />
+        </div>
       </b-row>
       <b-row class="py-2">
         <b-button class="mx-auto" variant="primary" size="lg" @click="onStart()">すたーと</b-button>
@@ -374,7 +374,7 @@ export default {
 </script>
 
 <style scoped>
-#start img {
+/* #start img {
   height: 60%;
-}
+} */
 </style>
