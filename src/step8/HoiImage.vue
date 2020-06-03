@@ -6,8 +6,8 @@
 export default {
   props: {
     hoi: {
-      type: String,
-    },
+      type: String
+    }
   },
 
   methods: {
@@ -25,13 +25,13 @@ export default {
         return "/static/step8/hoi_hidari.png";
       }
       return "/static/step8/blank.png";
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style scoped>
 img {
-  width: 8rem;
+  width: 5rem;
 }
 </style>

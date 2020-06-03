@@ -2,7 +2,9 @@
   <b-container>
     <div v-if="step == 0">
       <b-row>
-        <img id="start" class="mx-auto img-fluid" src="/static/start.png" />
+        <b-col cols="12">
+          <img id="start" class="mx-auto img-fluid" src="/static/start.png" />
+        </b-col>
       </b-row>
       <b-row class="py-2">
         <b-button class="mx-auto" variant="primary" size="lg" @click="onStart()">すたーと</b-button>
