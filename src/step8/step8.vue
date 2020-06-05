@@ -7,7 +7,7 @@
         </div>
       </b-row>
       <b-row class="py-2">
-        <b-button class="mx-auto" variant="primary" size="lg" @click="onStart()">すたー</b-button>
+        <b-button class="mx-auto" variant="primary" size="lg" @click="onStart()">すたーと</b-button>
       </b-row>
     </div>
     <div v-if="step == 1 || step == 2">
